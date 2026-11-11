@@ -7,12 +7,12 @@ public class Stack<T> : IStack<T>
     /// <summary>
     /// True if the stack contains no items; otherwise false.
     /// </summary>
-    public bool IsEmpty => throw new NotImplementedException();
+    public bool IsEmpty => linkedList.Count == 0;
 
     /// <summary>
     /// The number of items currently in the stack.
     /// </summary>
-    public int Count => throw new NotImplementedException();
+    public int Count => linkedList.Count;
 
     /// <summary>
     /// Returns the item on top of the stack without removing it.
@@ -21,8 +21,15 @@ public class Stack<T> : IStack<T>
     /// <exception cref="EmptyStackException">Thrown if the stack is empty.</exception>
     public T Peek()
     {
-        throw new NotImplementedException();
+    if (IsEmpty)
+    {
+        throw new EmptyStackException();
     }
+
+    return linkedList.First.Value;
+}
+   
+    
 
     /// <summary>
     /// Removes and returns the item on top of the stack.
@@ -31,7 +38,17 @@ public class Stack<T> : IStack<T>
     /// <exception cref="EmptyStackException">Thrown if the stack is empty.</exception>
     public T Pop()
     {
-        throw new NotImplementedException();
+        if(IsEmpty)
+        {
+            throw new EmptyStackException();
+        }
+
+        T topOfStack = linkedList.First.Value;
+
+        linkedList.RemoveFirst();
+
+        return topOfStack;
+
     }
 
     /// <summary>
@@ -40,7 +57,8 @@ public class Stack<T> : IStack<T>
     /// <param name="item">The item to add.</param>
     public void Push(T item)
     {
-        throw new NotImplementedException();
+        // add to front of linked list
+        linkedList.AddFirst(item);
     }
 
     /// <summary>
@@ -48,7 +66,7 @@ public class Stack<T> : IStack<T>
     /// </summary>
     public void Clear()
     {
-        throw new NotImplementedException();
+        linkedList.Clear();
     }
 
     /// <summary>
