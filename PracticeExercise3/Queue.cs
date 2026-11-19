@@ -9,14 +9,14 @@ public class Queue<T> : IQueue<T>
     /// Does not remove the item.
     /// </summary>
     /// <exception cref="EmptyQueueException">Thrown if the queue is empty.</exception>
-    public T First => IsEmpty? throw new EmptyQueueException() :LinkedList.First!.Value;
+    public T First => IsEmpty? throw new EmptyQueueException() : linkedList.First!.Value;
 
     /// <summary>
     /// The item at the back of the queue (the most recently enqueued item).
     /// Does not remove the item.
     /// </summary>
     /// <exception cref="EmptyQueueException">Thrown if the queue is empty.</exception>
-    public T Last => IsEmpty? throw new EmptyQueueException() :LinkedList.Last!.Value;
+    public T Last => IsEmpty? throw new EmptyQueueException() : linkedList.Last!.Value;
 
     /// <summary>
     /// The number of items currently in the queue.
